@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIFA World Cup 2026 - Official Companion App</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#31353e",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface": "#dfe2ee",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "on-tertiary": "#67001b",
+                        "surface-tint": "#d0bcff",
+                        "on-error": "#690005",
+                        "outline": "#958ea0",
+                        "surface-container": "#1c2028",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-container": "#a078ff",
+                        "surface-container-highest": "#31353e",
+                        "on-secondary": "#003640",
+                        "tertiary-container": "#ff516a",
+                        "on-primary": "#3c0091",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#00424e",
+                        "inverse-primary": "#6d3bd7",
+                        "tertiary-fixed": "#ffdadb",
+                        "on-primary-fixed-variant": "#5516be",
+                        "secondary": "#4cd7f6",
+                        "background": "#0f131c",
+                        "on-surface-variant": "#cbc3d7",
+                        "outline-variant": "#494454",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#001f26",
+                        "surface-container-lowest": "#0a0e16",
+                        "tertiary": "#ffb2b7",
+                        "primary": "#d0bcff",
+                        "on-tertiary-container": "#5b0017",
+                        "surface-container-low": "#181c24",
+                        "surface-container-high": "#262a33",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "surface-bright": "#353942",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#0f131c",
+                        "surface": "#0f131c",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "secondary-fixed": "#acedff",
+                        "on-tertiary-fixed": "#40000d",
+                        "on-background": "#dfe2ee",
+                        "inverse-on-surface": "#2c3039",
+                        "on-primary-container": "#340080",
+                        "inverse-surface": "#dfe2ee",
+                        "on-primary-fixed": "#23005c",
+                        "secondary-container": "#03b5d3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "margin-desktop": "40px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(76, 215, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(208, 188, 255, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .neon-glow-primary {
+            box-shadow: 0 0 15px rgba(208, 188, 255, 0.15);
+        }
+
+        .neon-glow-secondary {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.15);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary'));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(76, 215, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(76, 215, 246, 0.05) 1px, transparent 1px);
+        }
+
+        .hero-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col font-body-md text-body-md">
+<!-- TopNavBar -->
+<nav class="bg-surface/5 backdrop-blur-[20px] fixed top-0 w-full z-50 border-b border-white/10 shadow-[0_0_15px_rgba(208,188,255,0.15)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-full mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-on-surface tracking-tighter">
+                FIFA World Cup 2026
+            </div>
+<div class="hidden md:flex gap-md font-label-md text-label-md uppercase tracking-wider">
+<a class="text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Matches</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Standings</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Bracket</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Teams</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stadiums</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stats</a>
+</div>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex items-center justify-center gap-xs bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-sm py-xs rounded hover:bg-primary-fixed transition-colors scale-95 active:opacity-80">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    WATCH LIVE
+                </button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline/30 scale-95 active:opacity-80 transition-transform cursor-pointer">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJfYt5PTTmW0JsdueXW7OH_7ONm2PCe7kqXJEkgJulf4rDpb-lv0I0gC-JOP4rImSr3zpvBbFd9uEOUchr_35kZMvH7vpBY3_hmZlJMkquhOS5dEdFQkN3eVBx8oBlyD3ZlS057yJp8lc--s0iCto6tRp8da5dazbcZUQbvBHB5QmTNIGOpmpv4q6HX3WNbDAvKHxthVYuPzZh1xV5g-DymwnL97enxeR-peYGGI8dfYuHfi4GdQqwyrcISvIvVTxb-EWeu9pHseQ8"/>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-20">
+<!-- Hero Countdown Section -->
+<section class="relative w-full h-[819px] min-h-[600px] flex items-center justify-center overflow-hidden hero-clip bg-grid-pattern">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-30 mix-blend-luminosity" data-alt="A cinematic, wide-angle shot of a massive soccer stadium at night, illuminated by intense, high-contrast floodlights. The scene embodies an 'Electric Midnight' aesthetic, featuring deep navy and midnight shadows pierced by vibrant, neon violet and cyber cyan architectural glows. The pitch is pristine, and the atmosphere is charged with anticipation, evoking the premium, high-octane energy of a global sports tournament." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjTS8D8sZ0QqLl_NFDXH0fPL26vvX3pSsQk-lo2YYVshHArlqqt2LNgbU91pZB9aIW7DmzWKZk_LdYzh3Qz-KaSVdMxaIpXbCo767Vb7hdVvfQhe4AICFqw2Ijffz9IR53Ne7uaTCjlZ_xS-0cBXkfOwOSPiapHbycvG-FLOM-Ti9qgOq5KTOWaKGblhKULvZs7AftIVfYN8fXPTAYwD3xTzWv50kVtjYz_RztnwGH0_jP-QVL_Ak3L17YHIj3BaUgTF_GyvUDRyd-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 container mx-auto px-gutter text-center flex flex-col items-center">
+<div class="inline-flex items-center gap-xs bg-secondary/10 border border-secondary/30 rounded-full px-sm py-xs mb-md neon-glow-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Mexico City Kickoff</span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xl">
+                    THE WORLD'S STAGE <br/>
+<span class="text-gradient">AWAKENS</span>
+</h1>
+<!-- Countdown Timer -->
+<div class="flex gap-sm md:gap-md">
+<div class="glass-panel rounded-lg p-md min-w-[80px] md:min-w-[120px] flex flex-col items-center neon-glow-primary">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">245</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Days</span>
+</div>
+<div class="glass-panel rounded-lg p-md min-w-[80px] md:min-w-[120px] flex flex-col items-center neon-glow-primary">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Hours</span>
+</div>
+<div class="glass-panel rounded-lg p-md min-w-[80px] md:min-w-[120px] flex flex-col items-center neon-glow-primary">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">32</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Mins</span>
+</div>
+<div class="glass-panel rounded-lg p-md min-w-[80px] md:min-w-[120px] flex flex-col items-center neon-glow-primary hidden sm:flex">
+<span class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary">09</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase mt-xs">Secs</span>
+</div>
+</div>
+</div>
+</section>
+<div class="container mx-auto px-gutter py-xl flex flex-col gap-xl">
+<!-- Bento Grid Section -->
+<section>
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface">Tournament Pulse</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Live updates &amp; predictions</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[300px]">
+<!-- Tournament Simulator (Spans 8 cols) -->
+<div class="md:col-span-8 glass-panel rounded-xl p-md flex flex-col relative overflow-hidden group hover:neon-glow-primary transition-shadow duration-300">
+<div class="absolute top-0 right-0 p-md opacity-20 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-display-lg text-primary">sports_esports</span>
+</div>
+<div class="flex-grow z-10 flex flex-col justify-between">
+<div>
+<div class="inline-flex items-center gap-xs bg-primary/10 border border-primary/30 rounded-full px-sm py-xs mb-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">analytics</span>
+<span class="font-label-sm text-label-sm text-primary uppercase">Live Predictor</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">AI Tournament Simulator</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-sm">Run real-time bracket scenarios based on live team stats, injuries, and historical performance.</p>
+</div>
+<div class="flex gap-sm">
+<button class="bg-primary text-on-primary font-label-md text-label-md uppercase px-md py-sm rounded-lg hover:bg-primary-fixed transition-colors flex items-center gap-xs">
+                                    Run Simulation
+                                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Featured Team Card (Spans 4 cols) -->
+<div class="md:col-span-4 glass-panel rounded-xl p-md flex flex-col relative overflow-hidden group hover:neon-glow-secondary transition-shadow duration-300">
+<!-- Flag BG Abstract -->
+<div class="absolute inset-0 z-0 opacity-10">
+<img class="w-full h-full object-cover" data-alt="An abstract, stylized close-up of the Mexican national flag waving, depicted in a sleek 'Electric Midnight' style. The deep greens and reds are desaturated slightly against a dark navy background, while subtle neon cyan and violet highlights catch the ripples of the fabric, giving it a modern, tech-forward aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ57OWKAJwaAb1lviYsj61TzgffeMhPMeJ-c698ZcC-X-UG3kIoyCVqym5nJ-_tIH__6jyywXNSuD2S7KLpNKaKS00ofJP3NBUAdbN6MI_4ZyGDEFup3WZw1szHw2DsnX9Dy3Qvi5y-QSKPI22MLWfJiwr-hIkYmfV8lHiaFA4g7_T21kUiX5e75e0gjlby_4eIZcz05Z3bc0Qu_1Gmrw4heTx0fU3WvBLLqV2qVFYJqaty5T8iPUnijvA52ibQRLiEId5EGsYCZUj"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest to-transparent z-0"></div>
+<div class="flex-grow z-10 flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Host Nation</span>
+<div class="w-12 h-12 rounded-full glass-panel flex items-center justify-center border-secondary/30">
+<span class="material-symbols-outlined text-secondary">public</span>
+</div>
+</div>
+<div>
+<h3 class="font-headline-xl text-headline-xl text-on-surface font-black tracking-tight">MEX</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Squad revealed for opening match.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full relative border-t border-white/10 flat no shadows">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md px-margin-desktop py-xl">
+<div class="font-headline-xl text-headline-xl text-primary">
+                FIFA World Cup 2026
+            </div>
+<div class="flex flex-col gap-sm font-body-md text-body-md text-on-surface-variant">
+<a class="opacity-80 hover:opacity-100 transition-opacity hover:text-secondary underline decoration-secondary/30" href="#">Terms of Service</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity hover:text-secondary underline decoration-secondary/30" href="#">Privacy Policy</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity hover:text-secondary underline decoration-secondary/30" href="#">Streaming Guide</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity hover:text-secondary underline decoration-secondary/30" href="#">Fan Zone</a>
+<a class="opacity-80 hover:opacity-100 transition-opacity hover:text-secondary underline decoration-secondary/30" href="#">Contact</a>
+</div>
+<div class="flex flex-col justify-end text-on-surface-variant font-body-md text-body-md md:text-right">
+<p>© 2026 FIFA. All Rights Reserved. Official Companion App.</p>
+</div>
+</div>
+</footer>
+</body></html>

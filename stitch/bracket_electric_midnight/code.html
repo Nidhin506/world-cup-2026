@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIFA World Cup 2026 - Knockout Stage Bracket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#31353e",
+                      "primary-fixed": "#e9ddff",
+                      "on-surface": "#dfe2ee",
+                      "on-tertiary-fixed-variant": "#92002a",
+                      "on-tertiary": "#67001b",
+                      "surface-tint": "#d0bcff",
+                      "on-error": "#690005",
+                      "outline": "#958ea0",
+                      "surface-container": "#1c2028",
+                      "on-secondary-fixed-variant": "#004e5c",
+                      "primary-container": "#a078ff",
+                      "surface-container-highest": "#31353e",
+                      "on-secondary": "#003640",
+                      "tertiary-container": "#ff516a",
+                      "on-primary": "#3c0091",
+                      "error-container": "#93000a",
+                      "on-secondary-container": "#00424e",
+                      "inverse-primary": "#6d3bd7",
+                      "tertiary-fixed": "#ffdadb",
+                      "on-primary-fixed-variant": "#5516be",
+                      "secondary": "#4cd7f6",
+                      "background": "#0f131c",
+                      "on-surface-variant": "#cbc3d7",
+                      "outline-variant": "#494454",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-secondary-fixed": "#001f26",
+                      "surface-container-lowest": "#0a0e16",
+                      "tertiary": "#ffb2b7",
+                      "primary": "#d0bcff",
+                      "on-tertiary-container": "#5b0017",
+                      "surface-container-low": "#181c24",
+                      "surface-container-high": "#262a33",
+                      "tertiary-fixed-dim": "#ffb2b7",
+                      "surface-bright": "#353942",
+                      "on-error-container": "#ffdad6",
+                      "error": "#ffb4ab",
+                      "surface-dim": "#0f131c",
+                      "surface": "#0f131c",
+                      "secondary-fixed-dim": "#4cd7f6",
+                      "secondary-fixed": "#acedff",
+                      "on-tertiary-fixed": "#40000d",
+                      "on-background": "#dfe2ee",
+                      "inverse-on-surface": "#2c3039",
+                      "on-primary-container": "#340080",
+                      "inverse-surface": "#dfe2ee",
+                      "on-primary-fixed": "#23005c",
+                      "secondary-container": "#03b5d3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "xl": "80px",
+                      "margin-desktop": "40px",
+                      "lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Montserrat"
+                      ],
+                      "headline-lg": [
+                              "Montserrat"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-xl": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "42px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        /* Custom styles for bracket lines to keep HTML clean */
+        .bracket-line-right::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -24px;
+            width: 24px;
+            height: 2px;
+            background-color: rgba(255,255,255,0.1);
+            z-index: 0;
+            transition: all 0.3s ease;
+        }
+        .bracket-card:hover .bracket-line-right::after {
+            background-color: #4cd7f6;
+            box-shadow: 0 0 8px rgba(76,215,246,0.6);
+        }
+        
+        /* Smooth scrolling */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px rgba(208, 188, 255, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(208, 188, 255, 0.6); }
+            100% { box-shadow: 0 0 5px rgba(208, 188, 255, 0.2); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-on-primary">
+<!-- Ambient Background Glow -->
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/5 backdrop-blur-[20px] border-b border-white/10 shadow-[0_0_15px_rgba(208,188,255,0.15)]">
+<div class="flex justify-between items-center px-gutter py-4 max-w-full mx-auto">
+<div class="flex items-center gap-md">
+<span class="font-headline-lg text-headline-lg font-black text-on-surface tracking-tighter">FIFA World Cup 2026</span>
+</div>
+<nav class="hidden md:flex gap-md items-center">
+<!-- Navigation links from JSON -->
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Matches</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Standings</a>
+<!-- Active State -->
+<a class="font-label-md text-label-md uppercase tracking-wider text-primary border-b-2 border-primary pb-1 hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Bracket</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Teams</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stadiums</a>
+<a class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stats</a>
+</nav>
+<div class="flex items-center gap-sm">
+<button class="hidden md:flex items-center gap-xs px-sm py-xs bg-primary/20 text-primary border border-primary/30 rounded font-label-md text-label-md uppercase tracking-wider hover:bg-primary/30 transition-colors">
+                    WATCH LIVE
+                </button>
+<div class="w-10 h-10 rounded-full bg-surface-variant border border-white/10 flex items-center justify-center overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow z-10 pt-24 pb-xl relative">
+<!-- Header Section -->
+<div class="px-gutter mb-lg">
+<h1 class="font-display-lg text-display-lg hidden md:block text-on-surface uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Knockout Stage</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:hidden text-on-surface uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Knockout Stage</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">The path to glory. Follow the dramatic progression of the tournament's final teams.</p>
+</div>
+<!-- Bracket Horizontal Scroll Container -->
+<div class="w-full overflow-x-auto hide-scrollbar px-gutter pb-xl cursor-grab active:cursor-grabbing">
+<!-- Bracket Grid -->
+<div class="flex gap-16 min-w-max relative" style="height: 600px;">
+<!-- Column 1: Round of 32 (Showing a section of 4 matches for scale) -->
+<div class="flex flex-col justify-around w-64 h-full relative z-10">
+<div class="absolute -top-10 left-0 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Round of 32</div>
+<!-- Match 1 -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-primary/50 hover:shadow-[0_0_15px_rgba(208,188,255,0.15)] transition-all">
+<div class="bracket-line-right"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 49 • Jul 2</span>
+<span class="px-2 py-[2px] rounded text-[10px] font-bold tracking-wider bg-surface-variant text-on-surface-variant">FT</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center bg-white/5 p-xs rounded">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md font-medium">Brazil</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">3</span>
+</div>
+<div class="flex justify-between items-center p-xs opacity-60">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md">Croatia</span>
+</div>
+<span class="font-headline-lg text-headline-lg">1</span>
+</div>
+</div>
+</div>
+<!-- Match 2 -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-primary/50 hover:shadow-[0_0_15px_rgba(208,188,255,0.15)] transition-all">
+<div class="bracket-line-right"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 50 • Jul 2</span>
+<span class="px-2 py-[2px] rounded text-[10px] font-bold tracking-wider bg-surface-variant text-on-surface-variant">FT</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center bg-white/5 p-xs rounded">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md font-medium">Uruguay</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-primary">2</span>
+</div>
+<div class="flex justify-between items-center p-xs opacity-60">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md">Senegal</span>
+</div>
+<span class="font-headline-lg text-headline-lg">0</span>
+</div>
+</div>
+</div>
+<!-- Match 3 -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-primary/50 hover:shadow-[0_0_15px_rgba(208,188,255,0.15)] transition-all pulse-glow border-primary/30">
+<div class="bracket-line-right"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-[2px]"><span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> 68'</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md font-medium text-white">France</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-secondary">1</span>
+</div>
+<div class="flex justify-between items-center bg-white/5 p-xs rounded">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md font-medium text-white">Portugal</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-secondary">2</span>
+</div>
+</div>
+</div>
+<!-- Match 4 -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-white/30 transition-all opacity-70">
+<div class="bracket-line-right"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 52 • Jul 3</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant">Group G 1st</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-surface-variant">-</span>
+</div>
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant">Group H 2nd</span>
+</div>
+<span class="font-headline-lg text-headline-lg text-surface-variant">-</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 2: Round of 16 -->
+<div class="flex flex-col justify-around w-64 h-full relative z-10 py-12">
+<div class="absolute -top-10 left-0 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Round of 16</div>
+<!-- R16 Match 1 (Connects from Match 1 & 2) -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-primary/50 hover:shadow-[0_0_15px_rgba(208,188,255,0.15)] transition-all">
+<div class="bracket-line-right"></div>
+<!-- Vertical connector visual hack (Left side) -->
+<div class="absolute left-[-24px] top-[-50%] h-[100%] w-[2px] bg-white/10 z-0"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 73 • Jul 6</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md text-white font-medium">Brazil</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full bg-surface-variant border border-white/20"></div>
+<span class="font-body-md text-body-md text-white font-medium">Uruguay</span>
+</div>
+</div>
+</div>
+</div>
+<!-- R16 Match 2 (Connects from Match 3 & 4) -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-white/30 transition-all opacity-70">
+<div class="bracket-line-right"></div>
+<div class="absolute left-[-24px] top-[-50%] h-[100%] w-[2px] bg-white/10 z-0"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 74 • Jul 6</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant italic">W51</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant italic">W52</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 3: Quarterfinals -->
+<div class="flex flex-col justify-around w-64 h-full relative z-10 py-32">
+<div class="absolute -top-10 left-0 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Quarterfinals</div>
+<!-- QF Match (Connects from R16 1 & 2) -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-white/10 rounded-lg p-sm cursor-pointer hover:border-white/30 transition-all opacity-50">
+<div class="bracket-line-right"></div>
+<div class="absolute left-[-24px] top-[-50%] h-[100%] w-[2px] bg-white/10 z-0"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Match 89 • Jul 10</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant italic">W73</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-white/30 flex items-center justify-center"><span class="text-[8px] text-white/30">?</span></div>
+<span class="font-body-md text-body-md text-on-surface-variant italic">W74</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column 4: Semifinals -->
+<div class="flex flex-col justify-around w-64 h-full relative z-10 py-48">
+<div class="absolute -top-10 left-0 font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-primary">Semifinals</div>
+<!-- SF Match placeholder -->
+<div class="bracket-card group relative bg-surface/5 backdrop-blur-[20px] border border-primary/20 rounded-lg p-sm cursor-pointer transition-all opacity-40 shadow-[0_0_20px_rgba(208,188,255,0.05)]">
+<div class="absolute left-[-24px] top-[-100%] h-[200%] w-[2px] bg-white/5 z-0"></div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-primary">Match 97 • Jul 14</span>
+</div>
+<div class="space-y-xs">
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-primary/40 flex items-center justify-center"><span class="text-[8px] text-primary/40">?</span></div>
+<span class="font-body-md text-body-md text-primary/70 italic">W89</span>
+</div>
+</div>
+<div class="flex justify-between items-center p-xs">
+<div class="flex items-center gap-xs">
+<div class="w-5 h-5 rounded-full border border-dashed border-primary/40 flex items-center justify-center"><span class="text-[8px] text-primary/40">?</span></div>
+<span class="font-body-md text-body-md text-primary/70 italic">W90</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-white/10 z-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md px-margin-desktop py-xl max-w-7xl mx-auto">
+<div class="flex flex-col gap-sm">
+<span class="font-headline-xl text-headline-xl text-primary font-black tracking-tighter">FIFA World Cup 2026</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 FIFA. All Rights Reserved. Official Companion App.</p>
+</div>
+<div class="flex flex-col gap-sm md:col-span-2 md:items-end">
+<nav class="flex flex-wrap gap-md">
+<!-- Footer Links from JSON -->
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Streaming Guide</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Fan Zone</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</nav>
+</div>
+</div>
+</footer>
+<!-- Minimal JS for drag-to-scroll functionality on the bracket container -->
+<script>
+        const slider = document.querySelector('.overflow-x-auto');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            slider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body></html>

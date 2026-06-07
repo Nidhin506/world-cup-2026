@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FIFA World Cup 2026 - Matches</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#31353e",
+                        "primary-fixed": "#e9ddff",
+                        "on-surface": "#dfe2ee",
+                        "on-tertiary-fixed-variant": "#92002a",
+                        "on-tertiary": "#67001b",
+                        "surface-tint": "#d0bcff",
+                        "on-error": "#690005",
+                        "outline": "#958ea0",
+                        "surface-container": "#1c2028",
+                        "on-secondary-fixed-variant": "#004e5c",
+                        "primary-container": "#a078ff",
+                        "surface-container-highest": "#31353e",
+                        "on-secondary": "#003640",
+                        "tertiary-container": "#ff516a",
+                        "on-primary": "#3c0091",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#00424e",
+                        "inverse-primary": "#6d3bd7",
+                        "tertiary-fixed": "#ffdadb",
+                        "on-primary-fixed-variant": "#5516be",
+                        "secondary": "#4cd7f6",
+                        "background": "#0f131c",
+                        "on-surface-variant": "#cbc3d7",
+                        "outline-variant": "#494454",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-secondary-fixed": "#001f26",
+                        "surface-container-lowest": "#0a0e16",
+                        "tertiary": "#ffb2b7",
+                        "primary": "#d0bcff",
+                        "on-tertiary-container": "#5b0017",
+                        "surface-container-low": "#181c24",
+                        "surface-container-high": "#262a33",
+                        "tertiary-fixed-dim": "#ffb2b7",
+                        "surface-bright": "#353942",
+                        "on-error-container": "#ffdad6",
+                        "error": "#ffb4ab",
+                        "surface-dim": "#0f131c",
+                        "surface": "#0f131c",
+                        "secondary-fixed-dim": "#4cd7f6",
+                        "secondary-fixed": "#acedff",
+                        "on-tertiary-fixed": "#40000d",
+                        "on-background": "#dfe2ee",
+                        "inverse-on-surface": "#2c3039",
+                        "on-primary-container": "#340080",
+                        "inverse-surface": "#dfe2ee",
+                        "on-primary-fixed": "#23005c",
+                        "secondary-container": "#03b5d3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "margin-desktop": "40px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Montserrat"],
+                        "headline-lg": ["Montserrat"],
+                        "display-lg": ["Montserrat"],
+                        "display-lg-mobile": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["36px", { "lineHeight": "42px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%234cd7f6' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-active {
+            box-shadow: 0 0 15px rgba(208, 188, 255, 0.15);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+        }
+        .neon-pulse {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(76, 215, 246, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(76, 215, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 215, 246, 0); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen relative font-body-md bg-grid-pattern bg-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/5 backdrop-blur-[20px] border-b border-white/10 shadow-[0_0_15px_rgba(208,188,255,0.15)] hidden md:block">
+<div class="flex justify-between items-center px-gutter py-4 max-w-full mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-on-surface tracking-tighter">
+                FIFA World Cup 2026
+            </div>
+<div class="flex space-x-md font-label-md text-label-md uppercase tracking-wider">
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Matches</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Standings</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Bracket</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Teams</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stadiums</a>
+<a class="text-on-surface-variant hover:text-secondary hover:shadow-[0_0_8px_rgba(76,215,246,0.3)] transition-all" href="#">Stats</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="text-on-surface-variant hover:text-secondary transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">search</span>
+</button>
+<button class="bg-primary-container text-on-primary-container px-sm py-xs rounded-full font-label-md text-label-md uppercase tracking-wider hover:opacity-80 transition-opacity">
+                    WATCH LIVE
+                </button>
+<img alt="User Profile" class="w-8 h-8 rounded-full border border-white/20" data-alt="A small circular profile picture of a male user, set against a dark background, representing the logged-in state in a high-tech sports app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5JXR5usWco45wN8Cl66jPHk3RGlM3s9NJ8elD9EwnTFk-rEbYAwoV3y0Xg9grqck1XunpXyNdBp9uNxh1NNQsiMkCtpJwSvNR9b0PuYcpzA_4bK8MzA7Iu5ItOZwXiHxXc3puLPkfLjIe3k2oq--KHV2xUhAJr1P_j4GGl2Lkj3Fyj5zgGkWPS_SivOZ2VmzgatgmG0VCCI9aklNJwCd5LuPOM9NasKzjOLzOO3_9USG-wt8A80KtVH-MjLY_6_HYkLEXFUINS2sI"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-[100px] md:pt-[120px] pb-xl px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto flex flex-col gap-lg">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Matches</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Real-time fixtures and live data feed.</p>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-sm">
+<button class="glass-panel px-sm py-xs rounded-full border border-secondary text-secondary font-label-md text-label-md glow-active">
+                    All Matches
+                </button>
+<button class="glass-panel px-sm py-xs rounded-full text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">
+                    Live
+                </button>
+<button class="glass-panel px-sm py-xs rounded-full text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span> By Date
+                </button>
+</div>
+</header>
+<!-- Personalized Feed (Bento Grid) -->
+<section class="flex flex-col gap-md">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary">star</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Your Teams</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md">
+<!-- Featured Live Match (Spans 8 cols on desktop) -->
+<div class="glass-panel rounded-xl col-span-1 md:col-span-8 p-md relative overflow-hidden group glow-hover transition-all cursor-pointer">
+<!-- Subtle background glow -->
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-50"></div>
+<div class="relative z-10 flex flex-col h-full justify-between gap-md">
+<div class="flex justify-between items-start">
+<span class="bg-secondary/20 text-secondary border border-secondary/50 px-xs py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wide neon-pulse inline-flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Live - 65'
+                            </span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Group A • Los Angeles</span>
+</div>
+<div class="flex justify-between items-center px-sm">
+<!-- USA -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center p-2 border-white/20">
+<img alt="USA Flag/Crest" class="w-full h-full object-cover rounded-full" data-alt="A stylized, glowing emblem representing the United States national soccer team, rendered in high contrast with a dark background. The crest has subtle metallic edges and sits within a frosted glass container, fitting the Electric Midnight UI theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0UT5D2xwPPw9tuFAD6Ts5Zb4bEgoRv8nTdFYJ4kBENoMjk1tv_qEWHLMZBOgWAleG_EYqy4F7KdvylAm4iCZnEyBRop5NwAuUcaRfxN0a1ya-Y10L0KCqjAE1WQbd0VjYgHaDwmLm9Og5WjRULeTLV_NP1L6FAhYnTgsaja1V2SlNi63G-P1jPXjVFHC6EOpDlih2T99-1KDId57vosPXNvh8vSChEWc8TTPYnBYkuAPAlw2DGZqFCWisgn3Z4WsXfuKtlCNzaEQw"/>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">USA</span>
+</div>
+<!-- Score -->
+<div class="flex flex-col items-center">
+<div class="font-display-lg text-display-lg text-primary font-black tracking-tighter">
+                                    2 - 1
+                                </div>
+<span class="text-on-surface-variant font-label-sm text-label-sm mt-xs text-center">xG: 1.4 - 0.8</span>
+</div>
+<!-- Mexico -->
+<div class="flex flex-col items-center gap-sm">
+<div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center p-2 border-white/20">
+<img alt="Mexico Flag/Crest" class="w-full h-full object-cover rounded-full" data-alt="A stylized, glowing emblem representing the Mexican national soccer team, featuring rich greens and reds, set against a dark midnight background. The crest is housed in a sleek, frosted glass UI container with neon accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOodG_ggFZsU4tdvMIwp2Wc3u1A5iE0ep4nlz5NW6OOYWR9N45kKINqcKKrDIRHw3NC87f74TyoWeE_pGHjyQctIQu5RVSuPm21nRTXCOcqVhTD97b4PeUWHMo-IwMTdXSteeaT-bIFTlzwphBNoZaQdNFk_LBDsNUnV2NE8evVgWr_3bdifMW2OH3T1HDh2YcwFrSWQyXHJOSyCO7RAk0E7oGbYinAkT1Ckt7bfQvyUSWdZjzb1VOqwE0HkAfg97k82AeoF9V1ecN"/>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">MEX</span>
+</div>
+</div>
+<div class="border-t border-white/10 pt-sm mt-sm flex justify-between items-center">
+<div class="text-sm text-on-surface-variant font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">sports_soccer</span> Pulisic 42', Reyna 60'
+                            </div>
+<button class="bg-primary/20 text-primary border border-primary/50 px-sm py-xs rounded-full font-label-sm text-label-sm hover:bg-primary/30 transition-colors">
+                                Match Center
+                            </button>
+</div>
+</div>
+</div>
+<!-- Upcoming Match (Spans 4 cols on desktop) -->
+<div class="glass-panel rounded-xl col-span-1 md:col-span-4 p-md flex flex-col justify-between glow-hover transition-all cursor-pointer">
+<div class="flex justify-between items-start mb-md">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Today • 09:30 PM</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Group B • Miami</span>
+</div>
+<div class="space-y-sm flex-grow flex flex-col justify-center">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center border-white/20">
+<div class="w-4 h-4 bg-tertiary-container rounded-sm"></div>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">ECU</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface-variant">-</span>
+</div>
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full glass-panel flex items-center justify-center border-white/20">
+<div class="w-4 h-4 bg-on-primary rounded-sm"></div>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface font-semibold">NZL</span>
+</div>
+<span class="font-body-lg text-body-lg text-on-surface-variant">-</span>
+</div>
+</div>
+<div class="border-t border-white/10 pt-sm mt-md">
+<span class="text-primary font-label-sm text-label-sm uppercase tracking-wide block text-center w-full">Preview Match</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full relative bg-surface-container-lowest border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-md px-margin-mobile md:px-margin-desktop py-xl">
+<div class="col-span-1 md:col-span-3 mb-md">
+<span class="font-headline-xl text-headline-xl text-primary">FIFA World Cup 2026</span>
+</div>
+<div class="col-span-1 flex flex-col gap-sm font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+</div>
+<div class="col-span-1 flex flex-col gap-sm font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Streaming Guide</a>
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Fan Zone</a>
+</div>
+<div class="col-span-1 flex flex-col gap-sm font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-secondary underline decoration-secondary/30 opacity-80 hover:opacity-100 transition-opacity" href="#">Contact</a>
+</div>
+<div class="col-span-1 md:col-span-3 mt-md pt-md border-t border-white/10 text-on-surface-variant font-label-sm text-label-sm">
+            © 2026 FIFA. All Rights Reserved. Official Companion App.
+        </div>
+</footer>
+</body></html>
