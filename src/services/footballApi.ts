@@ -497,11 +497,12 @@ export class FootballApiService {
       return getSimulatedMatchById(id, forceRefresh);
     }
 
-    // If local ID is used (e.g. M1, R32-1) and API is not configured:
-    if (!this.isConfigured()) {
-      const match = INITIAL_MATCHES.find(m => m.id === id);
-      return match || null;
+    // If local ID is used (e.g. M1, R32-1) or if API is not configured:
+    if (!this.isConfigured() || id.startsWith('M') || !/^\d+$/.test(id)) {
+      return getSimulatedMatchById(id, forceRefresh);
     }
+
+    const detailedCacheKey = `match_detail_full_${id}`;
 
     try {
       // 1. Fetch main fixture
@@ -513,7 +514,6 @@ export class FootballApiService {
       const apiFixtureId = match.id;
 
       // For completed/upcoming matches, return cached complete details aggressively if available
-      const detailedCacheKey = `match_detail_full_${id}`;
       if (!forceRefresh && match.status !== 'LIVE') {
         const cachedDetailed = getCached<Match>(detailedCacheKey);
         if (cachedDetailed) return cachedDetailed;
