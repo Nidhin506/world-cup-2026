@@ -66,6 +66,96 @@ export function updateSimState(newState: Partial<SimState>): SimState {
   return currentSimState;
 }
 
+// Helper to dynamically adjust static match statuses and score simulation based on current system time
+export function getDynamicFallbackMatches(staticMatches: Match[]): Match[] {
+  const now = new Date();
+  
+  return staticMatches.map((m) => {
+    const matchTime = new Date(m.date);
+    const timeDiffMs = now.getTime() - matchTime.getTime();
+    
+    // Check if match is in the future
+    if (timeDiffMs < 0) {
+      return {
+        ...m,
+        status: 'UPCOMING',
+        homeScore: undefined,
+        awayScore: undefined,
+        minute: undefined
+      };
+    }
+    
+    // Check if match is currently live (started less than 2 hours / 120 minutes ago)
+    const twoHoursInMs = 2 * 60 * 60 * 1000;
+    if (timeDiffMs >= 0 && timeDiffMs < twoHoursInMs) {
+      const elapsedMinutes = Math.floor(timeDiffMs / (60 * 1000));
+      
+      // Generate a deterministic but realistic live score based on match ID number
+      const seed = m.number;
+      const homeScore = Math.floor((seed * 3) % 3);
+      const awayScore = Math.floor((seed * 7) % 3);
+      
+      return {
+        ...m,
+        status: 'LIVE',
+        homeScore,
+        awayScore,
+        minute: elapsedMinutes,
+        possession: [52, 48],
+        shots: [8, 6],
+        shotsOnTarget: [3, 2],
+        passes: [250, 220],
+        fouls: [6, 8],
+        corners: [3, 2],
+        formations: ['4-3-3', '4-4-2'],
+        lineups: {
+          home: ['Player H1', 'Player H2', 'Player H3', 'Player H4', 'Player H5'],
+          away: ['Player A1', 'Player A2', 'Player A3', 'Player A4', 'Player A5']
+        },
+        events: [
+          { type: 'GOAL', minute: Math.max(1, Math.floor(elapsedMinutes / 2)), teamId: m.homeTeam?.id || 'home', playerName: m.homeTeam?.keyPlayers?.[0] || 'Striker' }
+        ],
+        commentary: [
+          { minute: Math.max(1, Math.floor(elapsedMinutes / 2)), text: `Goal! ${m.homeTeam?.keyPlayers?.[0] || 'Striker'} scores for ${m.homeTeam?.name || 'Home Team'}!` }
+        ]
+      };
+    }
+    
+    // Otherwise, match is completed (started more than 2 hours ago)
+    // Generate a deterministic score so it stays consistent between requests
+    const seed = m.number;
+    const homeScore = Math.floor((seed * 3) % 4); // 0, 1, 2, 3
+    const awayScore = Math.floor((seed * 7) % 4); // 0, 1, 2, 3
+    
+    return {
+      ...m,
+      status: 'COMPLETED',
+      homeScore,
+      awayScore,
+      minute: undefined,
+      possession: [50, 50],
+      shots: [12, 10],
+      shotsOnTarget: [5, 4],
+      passes: [412, 320],
+      fouls: [10, 12],
+      corners: [6, 4],
+      formations: ['4-3-3', '4-4-2'],
+      lineups: {
+        home: ['Player H1', 'Player H2', 'Player H3', 'Player H4', 'Player H5'],
+        away: ['Player A1', 'Player A2', 'Player A3', 'Player A4', 'Player A5']
+      },
+      events: [
+        { type: 'GOAL', minute: 23, teamId: m.homeTeam?.id || 'home', playerName: m.homeTeam?.keyPlayers?.[0] || 'Striker' },
+        { type: 'GOAL', minute: 67, teamId: m.awayTeam?.id || 'away', playerName: m.awayTeam?.keyPlayers?.[0] || 'Forward' }
+      ],
+      commentary: [
+        { minute: 23, text: `Goal! ${m.homeTeam?.keyPlayers?.[0] || 'Striker'} scores for ${m.homeTeam?.name || 'Home'}!` },
+        { minute: 67, text: `Goal! ${m.awayTeam?.keyPlayers?.[0] || 'Forward'} scores for ${m.awayTeam?.name || 'Away'}!` }
+      ]
+    };
+  });
+}
+
 function getSimulatedMatches(forceRefresh = false): Match[] {
   const cacheKey = 'matches_list';
   if (!forceRefresh) {
@@ -80,7 +170,9 @@ function getSimulatedMatches(forceRefresh = false): Match[] {
   requestsTodayCount++;
   requestsThisMonthCount++;
 
-  const mappedMatches: Match[] = INITIAL_MATCHES.map((m) => {
+  const dynamicFallbackMatches = getDynamicFallbackMatches(INITIAL_MATCHES);
+
+  const mappedMatches: Match[] = dynamicFallbackMatches.map((m) => {
     if (m.id === currentSimState.matchId) {
       return {
         ...m,
@@ -393,7 +485,8 @@ export class FootballApiService {
 
     if (!this.isConfigured()) {
       // Fallback: static fixture list (simulate real API structure statically)
-      return INITIAL_MATCHES;
+      console.log(`[DIAGNOSTIC] API is not configured. Returning dynamic fallback matches.`);
+      return getDynamicFallbackMatches(INITIAL_MATCHES);
     }
 
     const cacheKey = 'matches_list';
@@ -402,10 +495,26 @@ export class FootballApiService {
       if (cached) return cached;
     }
 
+    const endpoint = `fixtures?league=${LEAGUE_ID}&season=${SEASON}`;
+    const url = `https://${API_HOST}/${endpoint}`;
+
     try {
-      const endpoint = `fixtures?league=${LEAGUE_ID}&season=${SEASON}`;
+      console.log(`[DIAGNOSTIC] API request URL: ${url}`);
+      console.log(`[DIAGNOSTIC] league ID: ${LEAGUE_ID}`);
+      console.log(`[DIAGNOSTIC] season: ${SEASON}`);
+
       const json: any = await this.fetchApi(endpoint);
       const apiFixtures = json.response || [];
+      console.log(`[DIAGNOSTIC] number of fixtures returned: ${apiFixtures.length}`);
+
+      if (apiFixtures.length > 0) {
+        const firstFixture = apiFixtures[0];
+        console.log(`[DIAGNOSTIC] first fixture status: ${firstFixture.fixture.status.short}`);
+        console.log(`[DIAGNOSTIC] first fixture score: Home: ${firstFixture.goals.home}, Away: ${firstFixture.goals.away}`);
+      } else {
+        console.log(`[DIAGNOSTIC] first fixture status: N/A`);
+        console.log(`[DIAGNOSTIC] first fixture score: N/A`);
+      }
 
       const mappedMatches: Match[] = apiFixtures.map((item: any, idx: number) => {
         const fixture = item.fixture;
@@ -481,11 +590,19 @@ export class FootballApiService {
       setCached(cacheKey, mappedMatches, hasLiveMatch ? 30000 : 600000);
 
       return mappedMatches;
-    } catch (e) {
+    } catch (e: any) {
       console.error('Error fetching matches from API-Football, returning fallback schedule:', e);
+      console.log(`[DIAGNOSTIC] API request URL: ${url}`);
+      console.log(`[DIAGNOSTIC] league ID: ${LEAGUE_ID}`);
+      console.log(`[DIAGNOSTIC] season: ${SEASON}`);
+      console.log(`[DIAGNOSTIC] number of fixtures returned: 0`);
+      console.log(`[DIAGNOSTIC] first fixture status: N/A (API error: ${e.message || e})`);
+      console.log(`[DIAGNOSTIC] first fixture score: N/A`);
+
       // Cache the fallback matches for a short duration to prevent immediate subsequent network requests
-      setCached(cacheKey, INITIAL_MATCHES, 60000); // 60 seconds
-      return INITIAL_MATCHES;
+      const dynamicMatches = getDynamicFallbackMatches(INITIAL_MATCHES);
+      setCached(cacheKey, dynamicMatches, 60000); // 60 seconds
+      return dynamicMatches;
     }
   }
 
