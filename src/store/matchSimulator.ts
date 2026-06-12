@@ -87,6 +87,7 @@ export interface GroupStanding {
   position: number;
 }
 
+// MatchState represents the global state for the match simulator and real-time synchronizer
 interface MatchState {
   // Real-Time Match States
   matches: Match[];
