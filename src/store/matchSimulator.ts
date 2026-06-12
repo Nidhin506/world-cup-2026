@@ -4,9 +4,10 @@ import { TEAMS, Team } from '../data/teams';
 
 // Helper to calculate standings
 export const calculateGroupStandings = (groupLetter: string, groupMatches: Match[]): GroupStanding[] => {
-  const groupTeams = TEAMS.filter((t) => t.group === groupLetter);
   const standings: Record<string, GroupStanding> = {};
 
+  // 1. Initialize from local TEAMS for this group
+  const groupTeams = TEAMS.filter((t) => t.group === groupLetter);
   groupTeams.forEach((t) => {
     standings[t.id] = {
       team: t,
@@ -20,6 +21,38 @@ export const calculateGroupStandings = (groupLetter: string, groupMatches: Match
       points: 0,
       position: 1
     };
+  });
+
+  // 2. Initialize from matches (in case there are mock/API teams not in static TEAMS)
+  groupMatches.forEach((m) => {
+    if (m.homeTeam && !standings[m.homeTeam.id]) {
+      standings[m.homeTeam.id] = {
+        team: m.homeTeam,
+        played: 0,
+        won: 0,
+        drawn: 0,
+        lost: 0,
+        goalsFor: 0,
+        goalsAgainst: 0,
+        goalDifference: 0,
+        points: 0,
+        position: 1
+      };
+    }
+    if (m.awayTeam && !standings[m.awayTeam.id]) {
+      standings[m.awayTeam.id] = {
+        team: m.awayTeam,
+        played: 0,
+        won: 0,
+        drawn: 0,
+        lost: 0,
+        goalsFor: 0,
+        goalsAgainst: 0,
+        goalDifference: 0,
+        points: 0,
+        position: 1
+      };
+    }
   });
 
   groupMatches.forEach((m) => {

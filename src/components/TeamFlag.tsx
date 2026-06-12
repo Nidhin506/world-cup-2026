@@ -50,6 +50,15 @@ const FIFA_TO_ISO: Record<string, string> = {
   QAT: 'qa',
   GHA: 'gh',
   URU: 'uy',
+  CZE: 'cz',
+  SCO: 'gb-sct',
+  CPV: 'cv',
+  COD: 'cd',
+  PAR: 'py',
+  CUW: 'cw',
+  JOR: 'jo',
+  HAI: 'ht',
+  BIH: 'ba'
 };
 
 interface TeamFlagProps {
